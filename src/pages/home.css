@@ -1,0 +1,105 @@
+.hello {
+  position: relative;
+  padding: 4px 4px 12px;
+}
+
+.hello-date::first-letter {
+  text-transform: uppercase;
+}
+
+.hello-date {
+  color: var(--muted);
+  font-size: 0.86rem;
+  margin: 0;
+}
+
+.hello-title {
+  font-size: 1.7rem;
+  margin: 2px 0 0;
+}
+
+.hello-title .name {
+  color: var(--rose-deep);
+}
+
+.hello-ko {
+  margin: 0;
+  color: var(--violet);
+  font-weight: 700;
+}
+
+.phrase {
+  margin-top: 6px;
+  background: linear-gradient(135deg, #fff, var(--lavender-mist));
+}
+
+.phrase-text {
+  font-size: 1.12rem;
+  margin: 4px 0 0;
+  color: var(--violet-deep);
+}
+
+.pet-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(135deg, #fff 0%, var(--lavender-mist) 100%);
+}
+
+.shortcuts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  min-height: 96px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--violet-deep);
+  font-weight: 700;
+  border: 1px solid var(--lavender-soft);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s;
+}
+
+.shortcut:active {
+  transform: scale(0.97);
+}
+
+.shortcut svg {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  box-sizing: content-box;
+}
+
+.s-bts {
+  background: linear-gradient(135deg, #efe9fc, #d9cdf5);
+}
+
+.s-drama {
+  background: linear-gradient(135deg, #fdeef3, #f6d3e0);
+}
+
+.s-diary {
+  background: linear-gradient(135deg, #fffaf0, #fbefc8);
+}
+
+.s-us {
+  background: linear-gradient(135deg, #f7f0fb, #ecdcef);
+}
+
+.surprise-card h3 {
+  margin-bottom: 2px;
+}

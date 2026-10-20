@@ -1,0 +1,185 @@
+.song-note {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--lavender-mist);
+  color: var(--violet);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.album-ph {
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+}
+
+.rank {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--violet);
+  width: 22px;
+  text-align: center;
+}
+
+.date-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--violet-deep);
+  background: var(--butter-soft);
+  border-radius: 10px;
+  padding: 6px 8px;
+  min-width: 74px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ---------- photocards ---------- */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.pc-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+}
+
+.pc-fav {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  color: #e9c35a;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pc {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 55 / 85;
+  border-radius: 14px;
+  padding: 8px 8px 30px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.pc-large {
+  max-width: 280px;
+  width: 80vw;
+}
+
+.pc-img {
+  flex: 1;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--lavender-mist);
+}
+
+.pc-img img,
+.pc-img div {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pc figcaption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 7px;
+  font-size: 0.72rem;
+  color: var(--violet-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--serif);
+}
+
+.pc-large figcaption {
+  font-size: 0.95rem;
+}
+
+.pc-estrellas {
+  background: linear-gradient(160deg, #d9cdf5, #b9a7e8);
+}
+
+.pc-estrellas figcaption {
+  color: #fff;
+}
+
+.pc-cerezo {
+  background: linear-gradient(160deg, #fdf0f4, #f6c9d8);
+}
+
+.pc-encaje {
+  background:
+    radial-gradient(circle at 6px 6px, #fff 3px, transparent 3.5px) 0 0 / 12px 12px,
+    var(--rose-soft);
+  border: 2px solid #fff;
+}
+
+.pc-holo {
+  background: linear-gradient(120deg, #f6d3e0, #d9cdf5, #cfe8f6, #fdf0c7, #f6d3e0);
+  background-size: 300% 300%;
+  animation: holo 6s ease infinite;
+}
+
+@keyframes holo {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.pc-polaroid {
+  background: #fffdf8;
+  border-radius: 4px;
+  padding-bottom: 38px;
+}
+
+.pc-polaroid .pc-img {
+  border-radius: 2px;
+}
+
+.pc-polaroid figcaption {
+  bottom: 12px;
+  text-align: center;
+}
+
+.song-note.play {
+  border: 0;
+  cursor: pointer;
+  background: var(--rose-soft);
+  color: var(--rose-deep);
+  font-size: 1rem;
+}
+
+.member-open {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.member-grid button {
+  position: relative;
+}

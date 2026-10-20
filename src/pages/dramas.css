@@ -1,0 +1,64 @@
+.stat-card {
+  margin: 0;
+  cursor: pointer;
+  padding: 10px 6px;
+  color: var(--violet-deep);
+}
+
+.filters summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--violet-deep);
+  min-height: 28px;
+}
+
+.drama-item {
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.status-pendiente {
+  background: var(--silver-soft);
+  color: #5d6070;
+}
+
+.status-en-curso {
+  background: var(--butter-soft);
+  color: #7a6420;
+}
+
+.status-terminado {
+  background: #e3f1ea;
+  color: #3f6e57;
+}
+
+.wheel-wrap {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.wheel {
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 24px solid var(--rose-deep);
+  z-index: 2;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.15));
+}

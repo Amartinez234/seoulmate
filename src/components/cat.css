@@ -1,0 +1,313 @@
+.cat {
+  overflow: visible;
+  display: block;
+}
+
+.cat-body {
+  transform-origin: 100px 188px;
+  animation: breathe 3.6s ease-in-out infinite;
+}
+
+.cat-head {
+  transform-origin: 100px 130px;
+  animation: headTilt 7s ease-in-out infinite;
+}
+
+.cat-tail {
+  transform-origin: 140px 168px;
+  animation: tail 2.8s ease-in-out infinite;
+}
+
+.cat-eyes {
+  transform-origin: 100px 95px;
+  animation: blink 5s infinite;
+}
+
+.cat-play {
+  animation: hop 0.5s ease 2;
+}
+
+.cat-pet .cat-head {
+  animation: nuzzle 0.6s ease 2;
+}
+
+.cat-eat .cat-head {
+  animation: munch 0.35s ease 4;
+}
+
+.cat-sleepy .cat-body,
+.cat-tired .cat-body {
+  animation-duration: 5.5s;
+}
+
+.cat-wait .cat-head {
+  animation: shake 0.4s ease 1;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.015, 1.035);
+  }
+}
+
+@keyframes headTilt {
+  0%,
+  80%,
+  100% {
+    transform: rotate(0);
+  }
+  86% {
+    transform: rotate(-5deg);
+  }
+  93% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes tail {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-14deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes nuzzle {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  70% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes munch {
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+/* ---------- habitación ---------- */
+.room {
+  position: relative;
+  height: 300px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--lavender-soft);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.room .wall {
+  position: absolute;
+  inset: 0 0 32% 0;
+}
+
+.room .floor {
+  position: absolute;
+  inset: 68% 0 0 0;
+  background: repeating-linear-gradient(90deg, #f1e3d3 0 46px, #ead9c6 46px 48px);
+  border-top: 3px solid #e3cfb8;
+}
+
+.room .rug {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  width: 62%;
+  height: 16%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #f8e3eb 0 55%, #f1cddb 56% 62%, #f8e3eb 63%);
+}
+
+.room .window {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 78px;
+}
+
+.room .slot {
+  position: absolute;
+  display: grid;
+  place-items: center;
+}
+
+.room .slot svg {
+  width: 100%;
+  height: 100%;
+}
+
+.room .slot-decor0 {
+  left: 6%;
+  top: 8%;
+  width: 70px;
+  height: 70px;
+}
+
+.room .slot-decor1 {
+  right: 6%;
+  top: 8%;
+  width: 70px;
+  height: 70px;
+}
+
+.room .slot-decor2 {
+  left: 4%;
+  bottom: 22%;
+  width: 72px;
+  height: 84px;
+}
+
+.room .slot-bed {
+  left: 50%;
+  bottom: 4%;
+  width: 190px;
+  height: 70px;
+  transform: translateX(-50%);
+}
+
+.room .slot-toy {
+  right: 8%;
+  bottom: 8%;
+  width: 54px;
+  height: 54px;
+}
+
+.room .catspot {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.wp-pared-crema {
+  background: repeating-linear-gradient(90deg, #fffaf3 0 26px, #fbf1e4 26px 28px);
+}
+
+.wp-pared-lavanda {
+  background-color: #f2edfc;
+  background-image: radial-gradient(#ddd2f6 2.2px, transparent 2.6px);
+  background-size: 22px 22px;
+}
+
+.wp-pared-rosa {
+  background-color: #fbe9ef;
+  background-image:
+    linear-gradient(rgba(232, 180, 200, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 180, 200, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.wp-pared-cerezo {
+  background-color: #fdf0f4;
+  background-image:
+    radial-gradient(circle at 30% 30%, #f6c9d8 0 4px, transparent 5px),
+    radial-gradient(circle at 75% 70%, #f9dbe5 0 3px, transparent 4px);
+  background-size: 46px 46px;
+}
+
+.wp-pared-noche {
+  background-color: #5e4b8b;
+  background-image:
+    radial-gradient(#f8e7a1 1.2px, transparent 1.8px),
+    radial-gradient(#ffffff 1px, transparent 1.6px),
+    linear-gradient(180deg, #4a3a74, #7a66ad);
+  background-size:
+    37px 37px,
+    23px 23px,
+    100% 100%;
+  background-position:
+    0 0,
+    11px 7px,
+    0 0;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: 40%;
+  font-size: 22px;
+  animation: floatUp 1.4s ease-out forwards;
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(0.7);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.2);
+  }
+}
+
+.speech {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--violet-deep);
+  box-shadow: var(--shadow-sm);
+  max-width: 86%;
+  text-align: center;
+  animation: fadeUp 0.25s ease;
+  z-index: 3;
+}
