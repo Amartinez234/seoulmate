@@ -31,7 +31,8 @@ Funciona sin internet, salvo la música y los videos de YouTube.
 ---------
 - Saludo con tu nombre, la fecha y una frase del día.
 - Tu gatito animado (tocalo para ir al Cat Café).
-- Accesos directos a BTS, K-Dramas, Mi diario y Nuestro rincón.
+- Accesos directos a BTS, K-Dramas, Mi diario, Nuestro rincón,
+  Biblioteca BL y Juegos BTS.
 - Cuando hay una carta o sorpresa nueva para abrir, aparece un aviso:
   "Alguien dejó algo especial para vos."
 - Abajo está la barra para moverte: Inicio, BTS, Dramas, Gatito, Nosotros.
@@ -104,6 +105,7 @@ Mis recomendaciones
 - Recompensas: misiones del día y premio por visitarlo.
 - No hay castigos: si no entrás por un tiempo, el gatito no se enferma ni
   pierde cariño. Te espera tranquilo.
+- Juegos 🎮: la pestaña de minijuegos. Mirá el punto 11.
 
 
 7. NOSOTROS (NUESTRO CAPÍTULO)
@@ -168,3 +170,38 @@ B) Desde tu propio celular (para que sea sorpresa):
    4) Ella entra en Ajustes > Importar, elige el archivo y pone la
       contraseña. Se suma a lo que ya tenga.
    El paquete nunca incluye el diario personal.
+
+
+11. JUEGOS 🎮
+-------------
+Están en Gatito > pestaña "Juegos" (o el acceso "Juegos BTS" del Inicio).
+Hay 16 juegos en tres grupos:
+
+Con tu gatito
+- Hablá con tu gatito: le hablás y te repite con vocecita. Pide permiso
+  para usar el micrófono; no se graba ni se guarda nada.
+- Café de Mochi, Gatito saltarín, ¿Dónde está el gatito? (vasos de bubble
+  tea) y Tres en raya contra tu gatito.
+
+Música y baile
+- Ritmo Bangtan, Coreografía, Concierto morado, Lluvia morada y
+  Burbujas Borahae.
+
+Para ARMY que sabe
+- Quiz ARMY, ¿Quién es?, Adiviná la canción, Línea de tiempo (álbumes),
+  Sopa ARMY y Memoria de los 7.
+
+Cada juego da corazones para el gatito (hasta 60 por día entre todos) y
+guarda tu récord. Jugar una vez completa la misión del día.
+
+
+12. BIBLIOTECA BL
+-----------------
+Para guardar tus historias favoritas de Wattpad.
+- "+ Historia": título, autor, enlace de Wattpad, ship, etiquetas, estado
+  (Quiero leer, Leyendo, Terminada, En pausa), capítulo, puntaje, favorita y notas.
+- "Leer en Wattpad" abre la historia en la app de Wattpad.
+- Con los botones − / + marcás por qué capítulo vas; al llegar al último
+  se marca como terminada.
+- Arriba podés filtrar por estado, favoritas o buscar.
+- Se guarda cifrada como todo lo demás y entra en las copias de seguridad.
