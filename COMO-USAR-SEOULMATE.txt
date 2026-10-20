@@ -1,0 +1,170 @@
+SEOULMATE - GUÍA DE USO
+=======================
+
+Enlace: https://amartinez234.github.io/seoulmate/
+
+
+1. INSTALARLA EN EL IPHONE
+--------------------------
+1) Abrí el enlace en Safari (tiene que ser Safari, no otro navegador).
+2) Tocá el botón Compartir (el cuadrado con la flecha hacia arriba).
+3) Elegí "Agregar a pantalla de inicio" y después "Agregar".
+4) Listo: aparece el ícono de Seoulmate como una app más. Abrila siempre
+   desde ese ícono.
+
+Funciona sin internet, salvo la música y los videos de YouTube.
+
+
+2. PRIMERA VEZ: TU CONTRASEÑA
+-----------------------------
+- La primera vez te pide crear una contraseña. Esa contraseña cifra todo lo
+  que guardes (diario, fotos, cartas).
+- IMPORTANTE: no se puede recuperar. Si te la olvidás, no hay forma de
+  abrir los datos. Anotala en un lugar seguro.
+- También te pregunta cómo querés que te llame la app en el saludo.
+- La app se bloquea sola después de unos minutos sin uso o en segundo
+  plano. El candado de arriba a la derecha la bloquea en el momento.
+- Todo se guarda solo en tu celular, nadie más lo ve.
+
+
+3. INICIO
+---------
+- Saludo con tu nombre, la fecha y una frase del día.
+- Tu gatito animado (tocalo para ir al Cat Café).
+- Accesos directos a BTS, K-Dramas, Mi diario y Nuestro rincón.
+- Cuando hay una carta o sorpresa nueva para abrir, aparece un aviso:
+  "Alguien dejó algo especial para vos."
+- Abajo está la barra para moverte: Inicio, BTS, Dramas, Gatito, Nosotros.
+- El engranaje de arriba abre Ajustes.
+
+
+4. BTS WORLD
+------------
+Tiene cinco pestañas:
+
+Música
+- "+ Canción": cargás el título, el álbum y, si querés, un enlace de
+  YouTube Music o YouTube.
+- Para conseguir el enlace: tocá "Buscar en YouTube Music", buscá la
+  canción, tocá Compartir > Copiar enlace y pegalo en la app.
+- El botón ▶ al lado de cada canción la reproduce dentro de la app.
+  "Reproducir las N canciones" las pasa todas seguidas.
+- El reproductor queda abajo mientras navegás por la app. Tiene anterior,
+  siguiente, cerrar y "Abrir en YouTube Music".
+- También podés guardar álbumes y marcar favoritos con la estrella.
+
+Integrantes
+- Tocá a cualquier integrante para abrir su álbum de fotos.
+- Podés subir varias fotos a la vez (hasta 60 por integrante), elegir una
+  como foto de perfil y borrar las que no quieras.
+
+Photocards
+- Subí una foto tuya, elegí un marco (Estrellas, Cerezo, Encaje,
+  Holográfico o Polaroid), un texto y una colección.
+
+Recuerdos
+- Conciertos, estrenos, días especiales... con fecha y nota.
+
+Listas
+- Armá tus propias listas (por ejemplo "Canciones para llorar").
+
+
+5. K-DRAMAS
+-----------
+Mis dramas
+- "+ Drama": título, estado (Pendiente, En curso, Terminado), géneros,
+  puntaje de 1 a 5, reseña, personajes y actores favoritos, notas por
+  episodio y "Dónde verlo".
+- En "Dónde verlo" podés pegar un enlace. Si es de YouTube, se ve dentro de
+  la app ("▶ Ver aquí"). Si es de otra plataforma (Netflix, Viki...), se
+  abre en esa app ("▶ Ver en ...").
+- Arriba podés filtrar por estado, género, puntaje o buscar por nombre.
+
+Romance 💜
+- 20 K-dramas de romance conocidos. Con "+ A mi lista" se suman a tus
+  pendientes.
+- Cada uno tiene botones para ver dónde está disponible en Argentina
+  (JustWatch), buscarlo en Netflix o Viki, y ver el tráiler.
+
+Ruleta
+- Elegí cómo te sentís (Romántica, Con ganas de reír, Para llorar...) y la
+  ruleta elige un drama de los que todavía no terminaste.
+
+Mis recomendaciones
+- Los dramas que marcaste como "Lo recomiendo".
+
+
+6. CAT CAFÉ (TU GATITO)
+-----------------------
+- La primera vez elegís un gatito, su pelaje y su nombre.
+- Mimos: Alimentar, Jugar y Acariciar. Cada acción sube su cariño, energía
+  o felicidad, y te da corazones. Entre una acción y otra hay que esperar
+  un poquito.
+- Tienda y decoración: con los corazones comprás cosas para su habitación.
+- Recompensas: misiones del día y premio por visitarlo.
+- No hay castigos: si no entrás por un tiempo, el gatito no se enferma ni
+  pierde cariño. Te espera tranquilo.
+
+
+7. NOSOTROS (NUESTRO CAPÍTULO)
+------------------------------
+Pestañas: Contador, Nuestra historia, Fotos, Cartas, Sorpresas,
+Para cada ocasión y Citas.
+
+- Contador: cuánto tiempo llevan juntos, desde la fecha que se cargue.
+- Nuestra historia: los momentos importantes en una línea de tiempo, con
+  fotos.
+- Cartas: algunas se pueden leer cuando quieras y otras recién desde
+  cierta fecha.
+- Sorpresas: se desbloquean solas en el día indicado.
+- Para cada ocasión: mensajes para días tristes, cumpleaños, etc.
+- Citas: ideas de salidas inspiradas en K-dramas.
+- Botón "Carta sorpresa": abre una carta al azar.
+
+Para agregar o editar contenido de esta sección hay que entrar en
+"Modo autor" (botón arriba de la sección). Mirá el punto 10.
+
+
+8. MI DIARIO
+------------
+- Es solo tuyo y está separado de "Nosotros". Se abre desde Inicio.
+- Entradas de diario con estado de ánimo, buscador, editar y borrar.
+- Tareas: al completarlas tu gatito te da corazones.
+- Objetivos con fecha meta y porcentaje de avance (botones -10% / +10%).
+
+
+9. AJUSTES
+----------
+- Perfil: tu nombre para el saludo y tus propias frases del día.
+- Privacidad y seguridad: cambiar la contraseña, elegir a los cuántos
+  minutos se bloquea y el PIN de autor.
+- Copias de seguridad: "Exportar" crea un archivo cifrado con todo, con una
+  contraseña que elegís. Guardalo en Archivos o iCloud. "Importar" lo
+  restaura (por ejemplo en un celular nuevo).
+  Recomendado: hacer una copia cada tanto. Si borrás los datos de Safari
+  o desinstalás la app sin copia, se pierde todo.
+- Instalar en el celular: los pasos del punto 1.
+- Borrar todo: elimina todos los datos de este celular. No se puede
+  deshacer.
+
+
+10. PARA QUIEN PREPARA EL REGALO (MODO AUTOR)
+---------------------------------------------
+El contenido de "Nosotros" (cartas, fotos, sorpresas, historia) empieza
+vacío. Hay dos formas de cargarlo:
+
+A) En el celular de ella:
+   1) Ajustes > PIN de autor: crear un PIN de 4 a 8 números.
+   2) Nosotros > "Modo autor" > poner el PIN > cargar todo > "Salir".
+   Con el PIN puesto, ella puede leer pero no editar ni espiar las cartas
+   con fecha antes de tiempo.
+
+B) Desde tu propio celular (para que sea sorpresa):
+   1) Instalá la app en tu celular con el mismo enlace y cargá todo en
+      modo autor.
+   2) Ajustes > Copias de seguridad > "Paquete de Nuestro capítulo" >
+      Exportar con una contraseña.
+   3) Pasale ese archivo (por WhatsApp, AirDrop o mail) y la contraseña.
+   4) Ella entra en Ajustes > Importar, elige el archivo y pone la
+      contraseña. Se suma a lo que ya tenga.
+   El paquete nunca incluye el diario personal.
