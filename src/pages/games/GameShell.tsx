@@ -90,3 +90,38 @@ export function useInterval(fn: () => void, ms: number | null) {
     return () => clearInterval(t);
   }, [ms]);
 }
+
+/** Cartel de inicio con las reglas. */
+export function GameIntro({ title, children, onStart, cta = '¡Empezar!' }: { title: string; children: ReactNode; onStart: () => void; cta?: string }) {
+  return (
+    <div className="game-overlay">
+      <div className="card center">
+        <h2>{title}</h2>
+        <p className="small">{children}</p>
+        <button className="btn" onClick={onStart} type="button">
+          {cta}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** Bucle de animación con dt en segundos; se pausa si la pestaña no está visible. */
+export function useFrame(active: boolean, fn: (dt: number) => void, deps: unknown[] = []) {
+  const ref = useRef(fn);
+  ref.current = fn;
+  useEffect(() => {
+    if (!active) return;
+    let raf = 0;
+    let last = performance.now();
+    const loop = (now: number) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (!document.hidden) ref.current(dt);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, ...deps]);
+}

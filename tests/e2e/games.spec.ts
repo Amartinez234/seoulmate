@@ -30,7 +30,7 @@ test('Gatito nuevo y minijuegos BTS: memoria, lluvia morada, concierto y quiz co
   await adopt(page);
   await page.screenshot({ path: `${SHOTS}/14-gatito-nuevo.png` });
   await page.getByRole('tab', { name: /Juegos/ }).click();
-  await expect(page.getByRole('button', { name: /^Jugar / })).toHaveCount(5);
+  await expect(page.getByRole('button', { name: /^Jugar / })).toHaveCount(16);
   await page.screenshot({ path: `${SHOTS}/15-juegos.png`, fullPage: true });
   const before = await hearts(page);
 
