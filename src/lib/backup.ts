@@ -2,6 +2,7 @@
 // contenido romántico de un dispositivo a otro sin incluir nunca el diario personal.
 import { deriveKey, fromB64, PBKDF2_ITERATIONS, randomBytes, seal, toB64, unseal, type Sealed } from './crypto';
 import { btsDoc, chapterDoc, dramaDoc, personalDoc, petDoc, settingsDoc } from './docs';
+import { storiesDoc } from './stories';
 import { getMediaData, saveMediaData } from './media';
 import { listSecretNames } from './vault';
 import type { ChapterData } from './types';
@@ -24,7 +25,7 @@ export interface BackupContent {
   media: Record<string, string>;
 }
 
-const FULL_DOCS: Doc<any>[] = [settingsDoc, petDoc, btsDoc, dramaDoc, chapterDoc, personalDoc];
+const FULL_DOCS: Doc<any>[] = [settingsDoc, petDoc, btsDoc, dramaDoc, chapterDoc, personalDoc, storiesDoc];
 
 export function chapterMediaIds(c: ChapterData): string[] {
   return [

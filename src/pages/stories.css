@@ -1,0 +1,86 @@
+.stories-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.6) 0 30px, transparent 31px),
+    linear-gradient(135deg, #fde7ef, #e3d9f8);
+}
+
+.stories-filters {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.input.sm {
+  width: auto;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+}
+
+.story {
+  padding: 14px;
+}
+
+.story.fav {
+  border-color: var(--lavender);
+  box-shadow: 0 6px 22px rgba(142, 124, 195, 0.22);
+}
+
+.story-main {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ship {
+  color: var(--rose-deep);
+}
+
+.tiny-tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+}
+
+.story-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--lavender-soft);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.story-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--lavender), var(--rose));
+}
+
+.st-quiero {
+  background: var(--silver-soft);
+  color: #5d6070;
+}
+
+.st-leyendo {
+  background: var(--butter-soft);
+  color: #7a6420;
+}
+
+.st-terminada {
+  background: #e3f1ea;
+  color: #3f6e57;
+}
+
+.st-pausada {
+  background: var(--rose-soft);
+  color: var(--rose-deep);
+}

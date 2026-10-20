@@ -170,3 +170,11 @@ export const IconDice = (p: P) => (
     <path d="M9 9h.01M15 15h.01M15 9h.01M9 15h.01M12 12h.01" strokeWidth={3} />
   </Svg>
 );
+
+export const IconLibrary = (p: P) => (
+  <Svg {...p}>
+    <path d="M4 4h4v16H4z M10 4h4v16h-4z" />
+    <path d="M16.2 5.2l3.6-1 3 15.4-3.6 1z" transform="translate(-1.6 0)" />
+    <path d="M12 8.6c-.6-.9-2-.4-1.6.7.3.7 1.6 1.5 1.6 1.5s1.3-.8 1.6-1.5c.4-1.1-1-1.6-1.6-.7z" fill="currentColor" stroke="none" transform="translate(0 2)" />
+  </Svg>
+);

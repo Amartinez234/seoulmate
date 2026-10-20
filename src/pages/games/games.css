@@ -1,0 +1,474 @@
+/* ---------- menú ---------- */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 132px;
+  padding: 14px;
+  border: 0;
+  border-radius: var(--radius);
+  text-align: left;
+  font: inherit;
+  color: var(--violet-deep);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease;
+}
+
+.game-card:active {
+  transform: scale(0.97);
+}
+
+.game-card:first-child {
+  grid-column: 1 / -1;
+  min-height: 96px;
+}
+
+.game-emoji {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.game-best {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.g-rose {
+  background: linear-gradient(135deg, #fde7ef, #f6c9d8);
+}
+
+.g-violet {
+  background: linear-gradient(135deg, #ece6fa, #cbbcf0);
+}
+
+.g-butter {
+  background: linear-gradient(135deg, #fffaf3, #fdf0c0);
+}
+
+.g-night {
+  background: linear-gradient(135deg, #6c5a9e, #3f3166);
+  color: #fff;
+}
+
+.g-mint {
+  background: linear-gradient(135deg, #f2fbf7, #cfeee0);
+}
+
+/* ---------- marco de juego ---------- */
+.game-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  padding: env(safe-area-inset-top, 0px) max(12px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px)
+    max(12px, env(safe-area-inset-left, 0px));
+}
+
+.game-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.game-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--serif);
+  color: var(--violet-deep);
+}
+
+.game-score {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--violet-deep);
+  white-space: nowrap;
+}
+
+.game-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 12px;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(255, 250, 243, 0.72);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.game-overlay > .card {
+  max-width: 360px;
+  margin: 0;
+}
+
+.game-result {
+  max-width: 360px;
+  margin: 0;
+}
+
+.game-big {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--violet);
+}
+
+/* ---------- lluvia morada ---------- */
+.catch-area {
+  position: relative;
+  flex: 1;
+  min-height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  background: linear-gradient(180deg, #4a3a74 0%, #8e7cc3 55%, #f6c9d8 100%);
+}
+
+.catch-stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(#f8e7a1 1.2px, transparent 1.8px),
+    radial-gradient(#ffffff 1px, transparent 1.6px);
+  background-size:
+    41px 41px,
+    27px 27px;
+  background-position:
+    0 0,
+    13px 9px;
+  opacity: 0.6;
+}
+
+.catch-item {
+  position: absolute;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+.catch-item.bonus {
+  font-size: 38px;
+  filter: drop-shadow(0 0 8px #f8e7a1);
+}
+
+.catch-cat {
+  position: absolute;
+  transform: translate(-50%, -30%);
+  pointer-events: none;
+}
+
+.catch-bonus {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--violet-deep);
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 8px 16px;
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.25s ease;
+  white-space: nowrap;
+}
+
+/* ---------- memoria ---------- */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.memory-card {
+  aspect-ratio: 3 / 4;
+  max-width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.memory-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.memory-card.shown .memory-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-back,
+.memory-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.memory-back {
+  background:
+    radial-gradient(circle at 6px 6px, rgba(255, 255, 255, 0.35) 2px, transparent 2.5px) 0 0 / 12px 12px,
+    linear-gradient(135deg, #b9a7e8, #8e7cc3);
+  font-size: 1.4rem;
+}
+
+.memory-front {
+  background: #fff;
+  transform: rotateY(180deg);
+  border: 2px solid var(--lavender-soft);
+}
+
+.memory-card.matched .memory-front {
+  border-color: var(--rose);
+  background: var(--rose-soft);
+}
+
+.memory-emoji {
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+
+.memory-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--violet-deep);
+}
+
+/* ---------- concierto ---------- */
+.stage {
+  position: relative;
+  height: 110px;
+  border-radius: 20px 20px 6px 6px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2c2148, #4a3a74);
+  margin-bottom: 10px;
+}
+
+.stage-lights {
+  position: absolute;
+  inset: 0;
+  background:
+    conic-gradient(from 160deg at 20% 0, transparent 0 10deg, rgba(185, 167, 232, 0.35) 12deg 22deg, transparent 24deg),
+    conic-gradient(from 170deg at 80% 0, transparent 0 8deg, rgba(246, 201, 216, 0.35) 10deg 20deg, transparent 22deg);
+  animation: sweep 3s ease-in-out infinite alternate;
+}
+
+.stage-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+@keyframes sweep {
+  to {
+    filter: hue-rotate(40deg);
+    opacity: 0.7;
+  }
+}
+
+.lights-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #3f3166, #241a3d);
+  min-height: 330px;
+}
+
+.seat {
+  position: relative;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lightstick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.12s ease;
+}
+
+.bulb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6a5c88, #3a2f52);
+  border: 3px solid #8a8199;
+  transition:
+    background 0.12s,
+    box-shadow 0.12s;
+}
+
+.stick {
+  width: 12px;
+  height: 34px;
+  margin-top: -2px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(90deg, #9fa3b2, #dcdee6, #9fa3b2);
+}
+
+.seat.on .bulb {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #b9a7e8 45%, #8e7cc3);
+  box-shadow:
+    0 0 18px 6px rgba(185, 167, 232, 0.8),
+    0 0 40px 10px rgba(142, 124, 195, 0.5);
+  animation: pulse 0.5s ease-in-out infinite alternate;
+}
+
+.seat.on.dorada .bulb {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f8e7a1 45%, #e2be4c);
+  box-shadow: 0 0 22px 8px rgba(248, 231, 161, 0.85);
+}
+
+.seat.lit .bulb {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #e8b4c8 50%, #c97f9c);
+  box-shadow: 0 0 26px 10px rgba(232, 180, 200, 0.85);
+}
+
+.seat:active .lightstick {
+  transform: scale(0.92);
+}
+
+.pop {
+  position: absolute;
+  top: 6px;
+  font-weight: 800;
+  color: #fff;
+  animation: floatUp 0.7s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.06);
+  }
+}
+
+/* ---------- quiz ---------- */
+.quiz {
+  max-width: 460px;
+  width: 100%;
+  margin: 8px auto;
+}
+
+.quiz-q {
+  font-size: 1.15rem;
+  margin: 6px 0 14px;
+  text-wrap: balance;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-opt {
+  border: 2px solid var(--lavender-soft);
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.quiz-opt.right {
+  border-color: var(--ok);
+  background: #e3f1ea;
+}
+
+.quiz-opt.wrong {
+  border-color: var(--danger);
+  background: #fbe4ec;
+}
+
+.quiz-opt.dim {
+  opacity: 0.55;
+}
+
+/* ---------- hablar ---------- */
+.talk-room {
+  position: relative;
+  border-radius: 24px;
+  min-height: 300px;
+  display: grid;
+  place-items: end center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.talk-cat {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.talk-meter {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--lavender-soft);
+  overflow: hidden;
+  margin: 4px 0 12px;
+}
+
+.talk-meter span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--lavender), var(--rose));
+  transition: width 0.08s linear;
+}

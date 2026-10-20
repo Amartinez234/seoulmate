@@ -8,7 +8,7 @@ import { levelInfo, moodOf, tick } from '../lib/pet';
 import { Cat } from '../components/Cat';
 import { Bar } from '../components/ui';
 import { Blossom, HeartDeco, Star4 } from '../components/deco';
-import { IconBook, IconGift, IconHeart, IconMusic, IconTv } from '../components/icons';
+import { IconBook, IconCat, IconGift, IconHeart, IconLibrary, IconMusic, IconTv } from '../components/icons';
 import './home.css';
 
 function greeting(h: number) {
@@ -115,6 +115,14 @@ export function HomePage({ visitGift, onGiftSeen }: { visitGift: string | null; 
         <Link to="/nosotros" className="shortcut s-us">
           <IconHeart />
           <span>Nuestro rincón</span>
+        </Link>
+        <Link to="/historias" className="shortcut s-stories">
+          <IconLibrary />
+          <span>Biblioteca BL</span>
+        </Link>
+        <Link to="/gatito?tab=juegos" className="shortcut s-games">
+          <IconCat />
+          <span>Juegos BTS</span>
         </Link>
       </nav>
 

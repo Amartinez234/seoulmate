@@ -1,4 +1,5 @@
 // Gatito original en SVG, con variantes de pelaje, accesorios y reacciones.
+import { useId } from 'react';
 import type { Breed, Reaction } from '../lib/pet';
 import './cat.css';
 
@@ -9,7 +10,7 @@ const PALETTES: Record<Breed, { body: string; line: string; accent: string; ligh
   naranja: { body: '#f8c995', line: '#d99a5d', accent: '#f6b9c9', stripes: '#e7a065' },
 };
 
-export type CatMood = Reaction | 'idle' | 'sleepy';
+export type CatMood = Reaction | 'idle' | 'sleepy' | 'listen' | 'speak';
 
 export function Cat({
   breed,
@@ -25,10 +26,17 @@ export function Cat({
   title?: string;
 }) {
   const p = PALETTES[breed];
+  const uid = useId().replace(/:/g, '');
+  const fur = `fur${uid}`;
+  const ear = `ear${uid}`;
+  const shine = `shine${uid}`;
   const dark = breed === 'esmoquin';
-  const eyeColor = dark ? '#f8e7a1' : '#3d3350';
-  const happyEyes = mood === 'pet' || mood === 'gift';
+  const eyeColor = dark ? '#3b2f52' : '#3d3350';
+  const iris = dark ? '#f2d77e' : '#6d58a8';
+  const happyEyes = mood === 'pet' || mood === 'gift' || mood === 'speak';
   const sleepyEyes = mood === 'sleepy' || mood === 'tired' || mood === 'full';
+  const openMouth = mood === 'eat' || mood === 'speak' || mood === 'play';
+  const mouthColor = dark ? '#fffaf3' : '#6b5398';
   return (
     <svg
       className={`cat cat-${mood}`}
@@ -39,54 +47,91 @@ export function Cat({
       aria-label={title ?? 'Gatito'}
       data-mood={mood}
     >
-      <ellipse cx="100" cy="190" rx="58" ry="7" fill="rgba(94,75,139,0.12)" />
+      <defs>
+        <radialGradient id={fur} cx="45%" cy="35%" r="70%">
+          <stop offset="0%" stopColor={dark ? '#7a7090' : '#ffffff'} stopOpacity={dark ? 1 : 0.85} />
+          <stop offset="55%" stopColor={p.body} />
+          <stop offset="100%" stopColor={p.line} stopOpacity="0.55" />
+        </radialGradient>
+        <linearGradient id={ear} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={p.accent} />
+          <stop offset="100%" stopColor="#fbe3ec" />
+        </linearGradient>
+        <radialGradient id={shine} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={iris} />
+          <stop offset="100%" stopColor={eyeColor} />
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="192" rx="54" ry="6" fill="rgba(94,75,139,0.14)" />
       <g className="cat-tail">
-        <path d="M140 168 C 178 172, 190 138, 170 116" stroke={p.line} strokeWidth="16" fill="none" strokeLinecap="round" />
-        <path d="M140 168 C 178 172, 190 138, 170 116" stroke={p.body} strokeWidth="12" fill="none" strokeLinecap="round" />
+        <path d="M138 172 C 182 176, 192 136, 166 112" stroke={p.line} strokeWidth="18" fill="none" strokeLinecap="round" />
+        <path d="M138 172 C 182 176, 192 136, 166 112" stroke={p.body} strokeWidth="13" fill="none" strokeLinecap="round" />
+        {p.stripes && <path d="M176 150 l9 2 M172 130 l9 -2" stroke={p.stripes} strokeWidth="4" strokeLinecap="round" />}
       </g>
       <g className="cat-body">
-        <ellipse cx="100" cy="152" rx="52" ry="36" fill={p.body} stroke={p.line} strokeWidth="2.5" />
-        {p.light && <ellipse cx="100" cy="156" rx="24" ry="24" fill={p.light} />}
-        <ellipse cx="80" cy="184" rx="14" ry="8" fill={p.light ?? p.body} stroke={p.line} strokeWidth="2.5" />
-        <ellipse cx="120" cy="184" rx="14" ry="8" fill={p.light ?? p.body} stroke={p.line} strokeWidth="2.5" />
+        <path d="M58 186 C 50 140, 74 126, 100 126 C 126 126, 150 140, 142 186 Z" fill={`url(#${fur})`} stroke={p.line} strokeWidth="2.5" strokeLinejoin="round" />
+        <ellipse cx="100" cy="162" rx="22" ry="22" fill={p.light ?? '#ffffff'} opacity={dark ? 1 : 0.55} />
+        <g className="cat-paws">
+          <ellipse cx="82" cy="186" rx="13" ry="8.5" fill={p.light ?? p.body} stroke={p.line} strokeWidth="2.5" />
+          <ellipse cx="118" cy="186" rx="13" ry="8.5" fill={p.light ?? p.body} stroke={p.line} strokeWidth="2.5" />
+          <path d="M78 183 v4 M83 182 v5 M88 183 v4 M114 183 v4 M119 182 v5 M124 183 v4" stroke={p.line} strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+        </g>
       </g>
       <g className="cat-head">
-        <path d="M58 76 L60 30 L92 56 Z" fill={p.body} stroke={p.line} strokeWidth="2.5" strokeLinejoin="round" />
-        <path d="M142 76 L140 30 L108 56 Z" fill={p.body} stroke={p.line} strokeWidth="2.5" strokeLinejoin="round" />
-        <path d="M64 64 L65 42 L82 56 Z" fill={p.accent} />
-        <path d="M136 64 L135 42 L118 56 Z" fill={p.accent} />
-        <ellipse cx="100" cy="94" rx="50" ry="42" fill={p.body} stroke={p.line} strokeWidth="2.5" />
-        {p.stripes && <path d="M90 56 l2 11 M100 53 v13 M110 56 l-2 11" stroke={p.stripes} strokeWidth="4" strokeLinecap="round" />}
-        {p.light && <ellipse cx="100" cy="112" rx="22" ry="15" fill={p.light} />}
+        <g className="cat-ears">
+          <path d="M44 78 C 40 50, 46 28, 56 22 C 70 30, 84 42, 92 54 Z" fill={`url(#${fur})`} stroke={p.line} strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M156 78 C 160 50, 154 28, 144 22 C 130 30, 116 42, 108 54 Z" fill={`url(#${fur})`} stroke={p.line} strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M53 66 C 51 50, 54 38, 58 34 C 67 40, 76 48, 81 56 Z" fill={`url(#${ear})`} />
+          <path d="M147 66 C 149 50, 146 38, 142 34 C 133 40, 124 48, 119 56 Z" fill={`url(#${ear})`} />
+        </g>
+        <path
+          d="M100 46 C 146 46, 166 74, 162 104 C 158 134, 132 142, 100 142 C 68 142, 42 134, 38 104 C 34 74, 54 46, 100 46 Z"
+          fill={`url(#${fur})`}
+          stroke={p.line}
+          strokeWidth="2.5"
+        />
+        <path d="M92 48 q4 -8 8 -2 q4 -8 8 0" fill={p.body} stroke={p.line} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        {p.stripes && <path d="M88 54 l3 12 M100 51 v14 M112 54 l-3 12 M44 98 h10 M42 108 h9 M156 98 h-10 M158 108 h-9" stroke={p.stripes} strokeWidth="4" strokeLinecap="round" />}
+        {p.light && <path d="M100 96 C 80 96, 70 112, 74 126 C 84 138, 116 138, 126 126 C 130 112, 120 96, 100 96 Z" fill={p.light} />}
         <g className={happyEyes || sleepyEyes ? '' : 'cat-eyes'}>
           {happyEyes ? (
             <>
-              <path d="M74 97 q8 -10 16 0" stroke={eyeColor} strokeWidth="4" fill="none" strokeLinecap="round" />
-              <path d="M110 97 q8 -10 16 0" stroke={eyeColor} strokeWidth="4" fill="none" strokeLinecap="round" />
+              <path d="M66 100 q11 -13 22 0" stroke={dark ? "#f6e9c8" : eyeColor} strokeWidth="4.5" fill="none" strokeLinecap="round" />
+              <path d="M112 100 q11 -13 22 0" stroke={dark ? "#f6e9c8" : eyeColor} strokeWidth="4.5" fill="none" strokeLinecap="round" />
             </>
           ) : sleepyEyes ? (
             <>
-              <path d="M74 96 q8 6 16 0" stroke={eyeColor} strokeWidth="4" fill="none" strokeLinecap="round" />
-              <path d="M110 96 q8 6 16 0" stroke={eyeColor} strokeWidth="4" fill="none" strokeLinecap="round" />
+              <path d="M66 100 q11 8 22 0" stroke={dark ? "#f6e9c8" : eyeColor} strokeWidth="4.5" fill="none" strokeLinecap="round" />
+              <path d="M112 100 q11 8 22 0" stroke={dark ? "#f6e9c8" : eyeColor} strokeWidth="4.5" fill="none" strokeLinecap="round" />
             </>
           ) : (
             <>
-              <ellipse cx="82" cy="95" rx="7" ry="8.5" fill={eyeColor} />
-              <ellipse cx="118" cy="95" rx="7" ry="8.5" fill={eyeColor} />
-              <circle cx="84.5" cy="91.5" r="2.6" fill="#fff" />
-              <circle cx="120.5" cy="91.5" r="2.6" fill="#fff" />
+              {dark && <ellipse cx="77" cy="98" rx="13.6" ry="15.6" fill="#fffaf3" />}
+              {dark && <ellipse cx="123" cy="98" rx="13.6" ry="15.6" fill="#fffaf3" />}
+              <ellipse cx="77" cy="98" rx="12" ry="14" fill={`url(#${shine})`} />
+              <ellipse cx="123" cy="98" rx="12" ry="14" fill={`url(#${shine})`} />
+              <ellipse cx="77" cy="100" rx="6.5" ry="8" fill={eyeColor} />
+              <ellipse cx="123" cy="100" rx="6.5" ry="8" fill={eyeColor} />
+              <circle cx="81.5" cy="91.5" r="4.6" fill="#fff" />
+              <circle cx="127.5" cy="91.5" r="4.6" fill="#fff" />
+              <circle cx="72" cy="105" r="2.2" fill="#fff" opacity="0.9" />
+              <circle cx="118" cy="105" r="2.2" fill="#fff" opacity="0.9" />
+              <path d="M84 102 l2 -2 l2 2 l-2 2 z M130 102 l2 -2 l2 2 l-2 2 z" fill="#fff" opacity="0.8" />
             </>
           )}
         </g>
-        <ellipse cx="68" cy="110" rx="9" ry="5" fill={p.accent} opacity="0.75" />
-        <ellipse cx="132" cy="110" rx="9" ry="5" fill={p.accent} opacity="0.75" />
-        <path d="M95.5 104 h9 l-4.5 5 z" fill="#e48aa8" />
-        {mood === 'eat' ? (
-          <ellipse cx="100" cy="116" rx="6" ry="5" fill="#c46b8a" />
+        <ellipse cx="60" cy="118" rx="11" ry="6.5" fill={p.accent} opacity="0.7" />
+        <ellipse cx="140" cy="118" rx="11" ry="6.5" fill={p.accent} opacity="0.7" />
+        <path d="M95 113 q5 -3 10 0 q-1 4 -5 5.5 q-4 -1.5 -5 -5.5 z" fill="#ec8fb0" />
+        {openMouth ? (
+          <g className="cat-mouth">
+            <path d="M92 121 q8 13 16 0 z" fill="#c4607f" stroke={mouthColor} strokeWidth="2" strokeLinejoin="round" />
+            <ellipse cx="100" cy="127" rx="4" ry="2.4" fill="#f4a3bd" />
+          </g>
         ) : (
-          <path d="M100 109 q-5 7 -11 2 M100 109 q5 7 11 2" stroke={dark ? '#fffaf3' : '#5e4b8b'} strokeWidth="2.4" fill="none" strokeLinecap="round" />
+          <path d="M100 118 q-4 7 -10 3 M100 118 q4 7 10 3" stroke={mouthColor} strokeWidth="2.4" fill="none" strokeLinecap="round" />
         )}
-        <path d="M56 104 h-16 M57 111 l-15 4 M144 104 h16 M143 111 l15 4" stroke={dark ? '#9a92ab' : p.line} strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M50 112 h-18 M51 119 l-17 5 M150 112 h18 M149 119 l17 5" stroke={dark ? '#9a92ab' : p.line} strokeWidth="1.6" strokeLinecap="round" />
       </g>
       {accessory && <Accessory id={accessory} />}
     </svg>

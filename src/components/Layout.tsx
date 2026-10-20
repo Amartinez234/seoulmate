@@ -12,6 +12,7 @@ const TITLES: Record<string, string> = {
   '/gatito': 'Cat Café',
   '/nosotros': 'Nuestro capítulo',
   '/diario': 'Mi diario',
+  '/historias': 'Biblioteca BL',
   '/ajustes': 'Ajustes',
 };
 

@@ -17,6 +17,7 @@ import { CatCafePage } from './pages/CatCafe';
 import { ChapterPage } from './pages/Chapter';
 import { PersonalPage } from './pages/Personal';
 import { SettingsPage } from './pages/Settings';
+import { StoriesPage } from './pages/Stories';
 
 type Phase = 'loading' | 'setup' | 'locked' | 'unlocked' | 'error';
 
@@ -81,6 +82,7 @@ export function App() {
           <Route path="gatito" element={<CatCafePage />} />
           <Route path="nosotros" element={<ChapterPage />} />
           <Route path="diario" element={<PersonalPage />} />
+          <Route path="historias" element={<StoriesPage />} />
           <Route path="ajustes" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

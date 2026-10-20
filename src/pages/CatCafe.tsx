@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDoc } from '../lib/store';
 import { personalDoc, petDoc } from '../lib/docs';
 import {
@@ -9,6 +10,7 @@ import { todayKey } from '../lib/dates';
 import { Cat, type CatMood } from '../components/Cat';
 import { ItemArt, Room, type Particle } from '../components/Room';
 import { Bar, Field, Tabs, errorMessage, toast } from '../components/ui';
+import { GamesHub } from './games/GamesHub';
 
 const PARTICLES: Record<PetAction, string[]> = {
   feed: ['🍙', '✨', '💛'],
@@ -82,10 +84,11 @@ function Adoption() {
   );
 }
 
-type CafeTab = 'acciones' | 'tienda' | 'misiones';
+type CafeTab = 'acciones' | 'juegos' | 'tienda' | 'misiones';
 
 function CafeRoom({ pet, now }: { pet: PetState; now: number }) {
-  const [tab, setTab] = useState<CafeTab>('acciones');
+  const [params] = useSearchParams();
+  const [tab, setTab] = useState<CafeTab>(params.get('tab') === 'juegos' ? 'juegos' : 'acciones');
   const [mood, setMood] = useState<CatMood>('idle');
   const [speech, setSpeech] = useState<string | null>(null);
   const [particles, setParticles] = useState<Particle[]>([]);
@@ -142,6 +145,7 @@ function CafeRoom({ pet, now }: { pet: PetState; now: number }) {
         onChange={setTab}
         tabs={[
           { id: 'acciones', label: 'Mimos' },
+          { id: 'juegos', label: 'Juegos 🎮' },
           { id: 'tienda', label: 'Tienda y decoración' },
           { id: 'misiones', label: 'Recompensas' },
         ]}
@@ -153,6 +157,7 @@ function CafeRoom({ pet, now }: { pet: PetState; now: number }) {
           <ActionButton label="Acariciar" emoji="🤍" left={cooldownLeft(pet, 'pet', now)} onClick={() => act('pet')} />
         </div>
       )}
+      {tab === 'juegos' && <GamesHub pet={pet} />}
       {tab === 'tienda' && <Shop pet={pet} />}
       {tab === 'misiones' && <Missions pet={pet} />}
     </div>

@@ -24,9 +24,10 @@ export interface PetState {
   equipped: { accessory: string | null; toy: string | null; bed: string | null; decor: string[]; wallpaper: string };
   lastTick: number;
   lastAction: Partial<Record<PetAction, number>>;
-  today: { day: string; feed: number; play: number; pet: number; heartsFromActions: number; missionsClaimed: string[] };
+  today: { day: string; feed: number; play: number; pet: number; heartsFromActions: number; missionsClaimed: string[]; heartsFromGames?: number };
   visits: { lastDay: string | null; totalDays: number };
   rewardedTasks: string[];
+  best?: Partial<Record<GameId, number>>; // récords de los minijuegos
 }
 
 export const BREEDS: Array<{ id: Breed; label: string }> = [
@@ -317,4 +318,46 @@ export function moodOf(stats: PetStats): { label: string; emoji: string } {
   if (avg >= 80) return { label: 'radiante', emoji: '✨' };
   if (avg >= 60) return { label: 'feliz', emoji: '💜' };
   return { label: 'tranquilo', emoji: '🌙' };
+}
+
+// ---------- Minijuegos ----------
+export type GameId = 'atrapar' | 'memoria' | 'luces' | 'quiz';
+export const DAILY_GAME_HEART_CAP = 45;
+/** Cuántos puntos hacen falta por corazón en cada juego (máximo 15 corazones por partida). */
+const POINTS_PER_HEART: Record<GameId, number> = { atrapar: 3, memoria: 8, luces: 2, quiz: 7 };
+
+export interface GameReward {
+  state: PetState;
+  hearts: number;
+  newRecord: boolean;
+  capped: boolean;
+}
+
+/** Premio al terminar una partida: corazones, XP y felicidad. Jugar cansa un poco, pero nunca por debajo de 15. */
+export function rewardGame(state: PetState, game: GameId, score: number, now = Date.now()): GameReward {
+  const s = tick(state, now);
+  const pts = Math.max(0, Math.floor(score));
+  const raw = pts > 0 ? Math.min(15, Math.max(1, Math.round(pts / POINTS_PER_HEART[game]))) : 0;
+  const used = s.today.heartsFromGames ?? 0;
+  const hearts = Math.max(0, Math.min(raw, DAILY_GAME_HEART_CAP - used));
+  const prev = s.best?.[game] ?? 0;
+  const newRecord = pts > prev;
+  return {
+    state: {
+      ...s,
+      hearts: s.hearts + hearts,
+      xp: s.xp + Math.min(20, 4 + Math.floor(pts / 5)),
+      stats: {
+        ...s.stats,
+        happiness: clamp(s.stats.happiness + (pts > 0 ? 10 : 4)),
+        energy: Math.min(s.stats.energy, Math.max(15, s.stats.energy - 6)),
+        affection: clamp(s.stats.affection + 2),
+      },
+      best: { ...s.best, [game]: Math.max(prev, pts) },
+      today: { ...s.today, play: s.today.play + 1, heartsFromGames: used + hearts },
+    },
+    hearts,
+    newRecord,
+    capped: hearts < raw,
+  };
 }

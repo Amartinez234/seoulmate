@@ -103,3 +103,12 @@
 .surprise-card h3 {
   margin-bottom: 2px;
 }
+
+.s-stories {
+  background: linear-gradient(135deg, #fdeef3, #e3d9f8);
+}
+
+.s-games {
+  background: linear-gradient(135deg, #6c5a9e, #8e7cc3);
+  color: #fff;
+}

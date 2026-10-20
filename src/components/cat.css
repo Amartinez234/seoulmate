@@ -40,6 +40,44 @@
   animation-duration: 5.5s;
 }
 
+.cat-listen .cat-ears {
+  transform-origin: 100px 60px;
+  animation: earTwitch 0.9s ease-in-out infinite;
+}
+
+.cat-listen .cat-head {
+  animation: headTilt 2.4s ease-in-out infinite;
+}
+
+.cat-speak .cat-mouth {
+  transform-origin: 100px 121px;
+  animation: talk 0.22s ease-in-out infinite alternate;
+}
+
+.cat-speak .cat-head {
+  animation: nuzzle 0.9s ease infinite;
+}
+
+@keyframes earTwitch {
+  0%,
+  60%,
+  100% {
+    transform: scaleY(1);
+  }
+  75% {
+    transform: scaleY(0.92) rotate(-2deg);
+  }
+}
+
+@keyframes talk {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1.1);
+  }
+}
+
 .cat-wait .cat-head {
   animation: shake 0.4s ease 1;
 }
