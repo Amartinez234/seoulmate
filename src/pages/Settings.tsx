@@ -7,6 +7,7 @@ import { applyBackup, collectContent, decryptBackup, downloadJson, encryptBackup
 import { getSupabase, supabaseRemote, syncConfigured, syncNow } from '../lib/sync';
 import { isIos, isStandalone, promptInstall, useCanInstall } from '../lib/install';
 import { todayKey } from '../lib/dates';
+import { BUILD_ID, checkForUpdate } from '../lib/update';
 import { DeleteButton, Field, errorMessage, toast } from '../components/ui';
 
 export function SettingsPage() {
@@ -17,6 +18,7 @@ export function SettingsPage() {
       <Install />
       <Backups />
       <Sync />
+      <AppVersion />
       <Danger />
       <p className="tiny muted center">Seoulmate v1.0 · Hecho con cariño, solo para vos 💜</p>
     </div>
@@ -404,6 +406,25 @@ function Sync() {
           {msg}
         </p>
       )}
+    </section>
+  );
+}
+
+function AppVersion() {
+  const [busy, setBusy] = useState(false);
+  const check = async () => {
+    setBusy(true);
+    await checkForUpdate();
+    setBusy(false);
+    toast('Si había una versión nueva, la app se va a recargar sola.');
+  };
+  return (
+    <section className="card">
+      <h2>Versión de la app</h2>
+      <p className="small muted" data-testid="build-id">Versión del {BUILD_ID} (UTC)</p>
+      <button className="btn ghost sm" onClick={check} disabled={busy} type="button">
+        {busy ? 'Buscando…' : 'Buscar actualización'}
+      </button>
     </section>
   );
 }
